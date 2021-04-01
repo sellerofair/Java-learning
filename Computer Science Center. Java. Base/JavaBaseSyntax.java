@@ -1,9 +1,24 @@
 import java.math.BigInteger;
-import java.util.Arrays;
 
 public class JavaBaseSyntax {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(mergeArrays(new int[] {1, 2, 7}, new int[] {0, 2, 4, 10})));
+        String[] roles = {
+            "Городничий",
+            "Аммос Федорович",
+            "Артемий Филиппович",
+            "Лука Лукич"
+        };
+        String[] text = {
+            "Городничий: Я пригласил вас, господа, с тем, чтобы сообщить вам пренеприятное известие: к нам едет ревизор.",
+            "Аммос Федорович: Как ревизор?",
+            "Артемий Филиппович: Как ревизор?",
+            "Городничий: Ревизор из Петербурга, инкогнито. И еще с секретным предписаньем.",
+            "Аммос Федорович: Вот те на!",
+            "Артемий Филиппович: Вот не было заботы, так подай!",
+            "Лука Лукич: Господи боже! еще и с секретным предписаньем!"
+        };
+
+        System.out.println(printTextPerRole(roles, text));
     }
 
 // 2.1 Core types
@@ -85,5 +100,37 @@ public class JavaBaseSyntax {
             i += 1;
         }
         return result;
+    }
+
+
+  // Step 10
+    /**
+     * Merges roles and scenario lines in the following format
+     * <Role>
+     * i) <Text1>
+     * j) <Text2>
+     * ...
+     * 
+     * where i, j - text position in scenario
+     *
+     * @param roles array
+     * @param textLines array
+     * @return formatted scenario
+    */
+    public static String printTextPerRole(String[] roles, String[] textLines) {
+        StringBuilder result = new StringBuilder();
+        String pattern = "%d) %s\n";
+        for (String role : roles) {
+            result.append(role + ":\n");
+            for (int i = 0; i < textLines.length; i++) {
+                String line = textLines[i];
+                int sepIndex = line.indexOf(':');
+                if (role.equals(line.substring(0, sepIndex))) {
+                    result.append(String.format(pattern, i + 1, line.substring(sepIndex+ 2)));
+                }
+            }
+        result.append('\n');
+        }
+        return String.valueOf(result).trim();
     }
 }
