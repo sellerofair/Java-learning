@@ -1,5 +1,8 @@
 package Shapes;
 
+// 3.3 Inheritance. Class Object
+  // Step 6
+
 public class Main {
     public static void main(String[] args) {
         Circle circle = new Circle(
