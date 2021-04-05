@@ -1,10 +1,10 @@
-public class JavaObjectsClassesPackages {
+public class Robomoving {
     public static void main(String[] args) {
         Robot robot = new Robot(0, 0, Direction.UP);
         moveRobot(robot, -3, 4);
     }
 
-// 2.1 Core types
+// 3.3 Class declaration
   // Step 12
     /**
      * Class of robot. He can make a step forward, turn left/right in 90 degrees
@@ -21,17 +21,11 @@ public class JavaObjectsClassesPackages {
             currentDirection = direction;
         }
 
-        public Direction getDirection() {
-            return currentDirection;
-        }
+        public Direction getDirection() { return currentDirection; }
 
-        public int getX() {
-            return currentX;
-        }
+        public int getX() { return currentX; }
 
-        public int getY() {
-            return currentY;
-        }
+        public int getY() { return currentY; }
 
         public void turnLeft() {
             switch (currentDirection) {
@@ -48,6 +42,7 @@ public class JavaObjectsClassesPackages {
                     currentDirection = Direction.DOWN;
                     break;
             }
+
             printInfo();
         }
 
@@ -66,6 +61,7 @@ public class JavaObjectsClassesPackages {
                     currentDirection = Direction.UP;
                     break;
             }
+
             printInfo();
         }
 
@@ -84,10 +80,11 @@ public class JavaObjectsClassesPackages {
                     currentX -= 1;
                     break;
             }
+
             printInfo();
         }
 
-        public void printInfo() {
+        public void printInfo() { 
             System.out.println(String.format("(%d, %d), %s", currentX, currentY, currentDirection));
         }
     }
