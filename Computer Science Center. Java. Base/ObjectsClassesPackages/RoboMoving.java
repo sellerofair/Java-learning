@@ -1,12 +1,9 @@
-public class ObjectsClassesPackages {
+package ObjectsClassesPackages;
+
+public class RoboMoving {
     public static void main(String[] args) {
-        // Robot robot = new Robot(0, 0, Direction.UP);
-        // moveRobot(robot, -3, 4);
-        byte[] acs = {100, 101, 102, 103};
-        AsciiCharSequence acs1 = new AsciiCharSequence(acs);
-        System.out.println(acs1);
-        System.out.println(acs1.length());
-        System.out.println(acs1.subSequence(1, 3));
+        Robot robot = new Robot(0, 0, Direction.UP);
+        moveRobot(robot, -3, 4);        
     }
 
 // 3.3 Class declaration
@@ -163,102 +160,5 @@ public class ObjectsClassesPackages {
         }
     System.out.println("\n   !!!Прибыли!!!");
     robot.printInfo();
-    }
-
-// 3.4 Inheritance. Class Object
-  // Step 9
-    /**
-     * Class of complex numbers.
-     */
-    public static class ComplexNumber {
-        private final double re;
-        private final double im;
-    
-        public ComplexNumber(double re, double im) {
-            this.re = re;
-            this.im = im;
-        }
-    
-        public double getRe() {
-            return re;
-        }
-    
-        public double getIm() {
-            return im;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (obj == this) { return true; }
-            if (!(obj instanceof ComplexNumber)) { return false; }
-            ComplexNumber number = (ComplexNumber) obj;
-            return number.im == this.im && number.re == this.re;
-        }
-
-        @Override
-        public int hashCode() {
-            long h = (
-                Double.doubleToLongBits(re) +
-                Double.doubleToLongBits(im)
-            );
-            return (int)h ^ (int)(h >>> 32);
-        }
-
-        @Override
-        public String toString() {
-            StringBuilder result = new StringBuilder();
-            result.append(re);
-            result.append(im > 0 ? " + " : " - ");
-            result.append(Math.abs(im));
-            result.append('i');
-            return result.toString();
-        }
-    }
-
-// 3.5 Abstract classes & Interfaces
-  // Step 8
-    /**
-     * Sequence of ASCII symbols.
-     */
-    public static class AsciiCharSequence implements CharSequence {
-        
-        byte[] sequence;
-
-        public AsciiCharSequence(byte[] seq) {
-            sequence = new byte[seq.length];
-            for (int i = 0; i < seq.length; i++) {
-                sequence[i] = seq[i];
-            }
-        }
-
-        @Override
-        public CharSequence subSequence(int arg0, int arg1) {
-            byte[] subSeq = new byte[arg1 - arg0];
-            for (int i = 0; i < subSeq.length; i++) {
-                subSeq[i] = sequence[i + arg0];
-            }
-
-            return new AsciiCharSequence(subSeq);
-        }
-
-        @Override
-        public char charAt(int arg0) {
-            return (char) sequence[arg0];
-        }
-
-        @Override
-        public int length() {
-            return sequence.length;
-        }
-
-        @Override
-        public String toString() {
-            if (sequence.length == 0) { return ""; }
-            StringBuilder result = new StringBuilder();
-            for (int i = 0; i < sequence.length; i++) {
-                result.append((char) sequence[i]);
-            }
-            return result.toString();
-        }
     }
 }

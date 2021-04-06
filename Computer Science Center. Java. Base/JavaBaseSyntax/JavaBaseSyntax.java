@@ -1,3 +1,5 @@
+package JavaBaseSyntax;
+
 import java.math.BigInteger;
 
 public class JavaBaseSyntax {
