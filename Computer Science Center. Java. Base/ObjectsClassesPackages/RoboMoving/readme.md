@@ -5,7 +5,7 @@
 
 В начальный момент робот находится в некоторой позиции на поле. Также известно, куда робот смотрит: вверх, вниз, направо или налево. Ваша задача — привести робота в заданную точку игрового поля.
 
-``java
+```java
 public interface RobotConnection extends AutoCloseable {
     void moveRobotTo(int x, int y);
     @Override
