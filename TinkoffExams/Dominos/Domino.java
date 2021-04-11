@@ -36,37 +36,35 @@ class Domino {
 
     /**
      * 
-     * Cheik if dominos have equal dots in one side.
+     * Check if dominos have equal dots in one side.
      * 
      * @param other
      * @return -1 if thereis no match; String of 2 dominos separated with space.
      */
     String match(Domino other) {
 
-        String result = "-1";
-
         if (this.rightDots == other.leftDots) {
-            result = String.format("%s %s",
+            return String.format("%s %s",
                 this.toString(),
                 other.toString());
         }
         if (this.rightDots == other.rightDots) {
-            result = String.format("%s %s",
+            return String.format("%s %s",
                 this.toString(),
                 other.rotate().toString());
         }
         if (this.leftDots == other.leftDots) {
-            result = String.format("%s %s",
+            return String.format("%s %s",
                 this.rotate().toString(),
                 other.toString());
         }
         if (this.leftDots == other.rightDots) {
-            result = String.format("%s %s",
+            return String.format("%s %s",
                 this.rotate().toString(),
                 other.rotate().toString());
         }
 
-        return result;
+        return "-1";
 
     }
 
