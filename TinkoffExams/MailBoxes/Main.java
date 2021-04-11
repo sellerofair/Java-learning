@@ -6,8 +6,11 @@ import java.util.Scanner;
 public class Main {
     
     public static void main(String[] args) throws IOException {
+
         Scanner scanner = null;
+
         try {
+
             scanner = new Scanner(System.in);
 
             int n = scanner.nextInt();
@@ -50,10 +53,13 @@ public class Main {
             }
 
             System.out.println(price);
+
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
         } finally {
             scanner.close();
         }
+
     }
+    
 }
